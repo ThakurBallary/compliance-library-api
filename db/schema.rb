@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031173622) do
+ActiveRecord::Schema.define(version: 20171101152100) do
+
+  create_table "acts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "key"
+    t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "position"
@@ -21,8 +28,7 @@ ActiveRecord::Schema.define(version: 20171031173622) do
 
   create_table "libcompls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "area_id"
-    t.string "act"
-    t.string "state"
+    t.bigint "act_id"
     t.date "date"
     t.string "compliance_task"
     t.text "compliance_details"
@@ -35,7 +41,21 @@ ActiveRecord::Schema.define(version: 20171031173622) do
     t.string "ref"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["act_id"], name: "index_libcompls_on_act_id"
     t.index ["area_id"], name: "index_libcompls_on_area_id"
+  end
+
+  create_table "libcompls_states", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "libcompl_id"
+    t.integer "state_id"
+    t.index ["libcompl_id", "state_id"], name: "index_libcompls_states_on_libcompl_id_and_state_id"
+  end
+
+  create_table "states", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "key"
+    t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

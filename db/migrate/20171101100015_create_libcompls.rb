@@ -2,8 +2,7 @@ class CreateLibcompls < ActiveRecord::Migration[5.1]
   def change
     create_table :libcompls do |t|
       t.references :area
-      t.string :act
-      t.string :state
+      t.references :act
       t.date :date
       t.string :compliance_task
       t.text :compliance_details

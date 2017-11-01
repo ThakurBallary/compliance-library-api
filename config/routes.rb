@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
   	namespace :v1 do
-  		resources :libcompls
   		resources :areas
+		resources :acts
+  		resources :states
+  		resources :libcompls
   	end
   end
 

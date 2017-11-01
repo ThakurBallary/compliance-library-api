@@ -3,7 +3,7 @@ module Api
 		class AreasController < ApplicationController
 
 			def index
-				render json: Area.order(:position), include: ['libcompls']
+				render json: Area.order(:position)
 			end
 
 		end
