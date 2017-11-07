@@ -26,7 +26,7 @@ module Api
 			private
 
 			def area_params
-				params.require(area).permit(:position, :name)
+				params.permit(:position, :name)
 			end
 
 			def set_area

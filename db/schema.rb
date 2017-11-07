@@ -10,23 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101152100) do
+ActiveRecord::Schema.define(version: 20171101152004) do
 
-  create_table "acts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "acts", force: :cascade do |t|
     t.string "key"
     t.string "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "areas", force: :cascade do |t|
     t.integer "position"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "libcompls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "libcompls", force: :cascade do |t|
     t.bigint "area_id"
     t.bigint "act_id"
     t.date "date"
@@ -45,13 +48,7 @@ ActiveRecord::Schema.define(version: 20171101152100) do
     t.index ["area_id"], name: "index_libcompls_on_area_id"
   end
 
-  create_table "libcompls_states", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "libcompl_id"
-    t.integer "state_id"
-    t.index ["libcompl_id", "state_id"], name: "index_libcompls_states_on_libcompl_id_and_state_id"
-  end
-
-  create_table "states", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "states", force: :cascade do |t|
     t.string "key"
     t.string "value"
     t.datetime "created_at", null: false

@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# areas = ["Payroll", "Indirect", "Direct", "Industrial", "Environmental", "Corporate Law", "Health Care", "RERA"]
-# areas.each.with_index(1) do |area, index|
-# 	Area.create(position: index, name: area)
-# end
+areas = ["Payroll", "Indirect", "Direct", "Industrial", "Environmental", "Corporate Law", "Health Care", "RERA"]
+areas.each.with_index(1) do |area, index|
+	Area.create(position: index, name: area)
+end
 
 # acts = {"shop and est": "ap shop and est", "shop and est": "common shop and est", "act 2": "ts act 2", "act 2": "up act 2", "act 3": "act 3"}
 # acts.each do |k, v|
