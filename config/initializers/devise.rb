@@ -259,6 +259,12 @@ Devise.setup do |config|
   # config.warden do |manager|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
+
+    # Registering new Strategy
+    # manager.strategies.add(:jwt, Devise::Strategies::JsonWebToken)
+    # Adding the new JWT Strategy to the top of Warden's list,
+    # Scoped by what Devise woul scope (typically :user)
+    # manager.default_strategies(scope: :user).unshift :jwt
   # end
 
   # ==> Mountable engine configurations

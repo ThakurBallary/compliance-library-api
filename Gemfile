@@ -20,7 +20,8 @@ gem 'active_model_serializers', '~> 0.10.6'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # Authentication and Authorization
-gem 'devise', '~> 4.3'
+gem 'devise'
+gem 'jwt'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
